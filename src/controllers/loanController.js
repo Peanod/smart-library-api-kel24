@@ -10,7 +10,6 @@ export const LoanController = {
         data: loan
       });
     } catch (err) {
-      // Jika stok habis atau ID salah, kirim status 400 (Bad Request)
       res.status(400).json({ error: err.message });
     }
   },
@@ -24,12 +23,12 @@ export const LoanController = {
     }
   },
 
-  // FUNGSI BARU: Controller untuk mengembalikan data Top 3 Peminjam
+  // FUNGSI BARU: Controller Top 3 Peminjam (Pesan disesuaikan dengan screenshot)
   async getTopBorrowers(req, res) {
     try {
       const topBorrowers = await LoanModel.getTopBorrowers();
       res.json({
-        message: "Berhasil mengambil data Top 3 Peminjam",
+        message: "Top 3 peminjam buku berhasil diambil",
         data: topBorrowers
       });
     } catch (err) {
